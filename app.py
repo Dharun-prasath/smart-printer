@@ -7,13 +7,13 @@ app = Flask(__name__)
 UPLOAD_FOLDER = "uploads"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# Razorpay API Keys (Replace with your own)
+# Replace with your actual Razorpay API Keys
 RAZORPAY_KEY_ID = "rzp_test_PyySScCyy77rUo"
 RAZORPAY_KEY_SECRET = "WhQxBPVGw0qFZMhyRfuOTkP7"
 
 client = razorpay.Client(auth=(RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET))
 
-# Ensure upload folder exists
+# Ensure the upload folder exists
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route("/", methods=["GET", "POST"])
@@ -38,7 +38,7 @@ def index():
                 "payment_capture": "1"
             })
 
-            return render_template("payment.html", file_path=file_path, order_id=order["id"], amount=total_price)
+            return render_template("payment.html", file_path=file_path, order_id=order["id"], amount=total_price, copies=copies, color=color_option)
     
     return render_template("index.html")
 
