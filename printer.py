@@ -2,7 +2,7 @@ import sys
 import subprocess
 
 def print_file(file_path, copies, color_option):
-    printer_name = "HP DeskJet 2300 series"  # Get this using `lpstat -p`
+    printer_name = "HP_DeskJet_2300_series"  # Get this using `lpstat -p`
     
     color_mode = "Color" if color_option == "color" else "Grayscale"
     
